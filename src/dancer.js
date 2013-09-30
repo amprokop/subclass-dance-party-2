@@ -9,7 +9,8 @@ var Dancer = function(top, left, timeBetweenSteps){
     // the basic dancer doesn't do anything interesting at all on each step,
     // it just schedules the next step
     setTimeout(this.step, timeBetweenSteps);
-  };
+  }.bind(this);
+
   this.step();
 
   this.setPosition = function(top, left){
