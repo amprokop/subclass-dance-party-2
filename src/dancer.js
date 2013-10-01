@@ -6,17 +6,17 @@ var Dancer = function(top, left, timeBetweenSteps){
   this.setPosition(top, left);
   this.$node.on("mouseover", function() {
     instance.$node.remove();
+    var remove = function(){
+      for (var i=0; i<window.dancers.length; i++) {
+        if (window.dancers[i] === instance) {
+          window.dancers.splice(i,1);
+        }
+      }
+    }();
   });
 };
 
-// function() {
-//       for (var i=0; i<window.dancers.length; i++) {
-//         if (window.dancers[i] === instance) {
-//           window.dancers.splice(i,1);
-//         }
-//       }
-//     }
-//     );
+
 
 Dancer.prototype.step = function () {
   var instance = this;

@@ -2,11 +2,13 @@ body, html{
   height:100%;
 }
 body{
-  margin: 0px;
+  margin-left: 20px;
   background-color:#444;
   font-size: 18px;
-  background-size: 100%;
+  background-size: 90%;
+  background-repeat:no-repeat;
 }
+
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
@@ -16,6 +18,7 @@ body, a:link, a:visited, a:active{
 }
 .lineupButton {
   padding:5px 12px;
+  float:right;
 }
 .topbar{
   height:32px;
@@ -26,13 +29,12 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:50px solid white;
-  border-radius:50px;
   position:absolute;
 }
 
 .greendancer{
   border-color: green;
+  border: 10px;
   border-radius:10px;
 }
 

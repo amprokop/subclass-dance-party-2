@@ -20,7 +20,6 @@ BlinkyDancer.prototype.step = function() {
 
   this.$node.animate({
     opacity: 0.7,
-    left: "+=10",
     height: "toggle"
   }, 1000);
 };

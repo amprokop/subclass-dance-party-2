@@ -13,21 +13,49 @@
 
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">test Danny Glover</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlueDancer">fade Danny Glover in and out</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="GreenDancer">add Danny Glover </a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="GreenDancer">add Danny Glover</a>
-      <a href="#" class="lineupButton" data-dancer-maker-function-name="lineUp">LINE IT UP</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">crazy Danny Glover</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlueDancer">fadey Danny Glover</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="GreenDancer">blinky Danny Glover </a>
+      <a href="#" class="challengeButton">TAKE THE DANNY GLOVER CHALLENGE</a>
+      <a href="#" class="lineupButton" data-dancer-maker-function-name="lineUp">Line up</a>
     </div>
 
     <script>
       $(document).ready(function(){
         window.dancers = [];
-
+        console.log($("body").height());
         $(".lineupButton").on("click", function(event){
           for (var i=0; i<window.dancers.length; i++) {
             window.dancers[i].lineUp();
           }
+        });
+        var getRandomInt = function(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+        var challengeArray = [window["BlueDancer"],window["GreenDancer"],window["BlinkyDancer"]]
+
+        $(".challengeButton").on("click", function(event){
+          for (var i=0; i<10; i++) {
+            var index = getRandomInt(0,2)
+            var dancer = new challengeArray[index](
+              $("body").height() * Math.random() * .8,
+              $("body").width() * Math.random() * .8,
+              100);
+            window.dancers.push(dancer);
+            $('body').append(dancer.$node);
+          }
+
+          var dannyWins = function(){
+            if (window.dancers.length){
+              alert("Too late, Danny Glover has won 5 more Oscars.")
+            } else {
+              alert("Cool, you've defeated the most powerful man on earth!")
+            }
+          }
+
+          setTimeout(function(){
+            dannyWins();
+          }, 5000)
         })
 
         $(".addDancerButton").on("click", function(event){
@@ -44,6 +72,7 @@
            * to the stage.
            */
           var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
+          console.log($(this).data("dancer-maker-function-name"));
 
           // get the maker function for the kind of dancer we're supposed to make
           var dancerMakerFunction = window[dancerMakerFunctionName];
