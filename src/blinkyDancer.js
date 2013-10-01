@@ -5,7 +5,6 @@ var BlinkyDancer = function(top, left, timeBetweenSteps){
   // so we must keep a copy of the old version of this function
   
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.timeBetweenSteps = timeBetweenSteps;
   // the above line can be uncommented and will replace the next three statements
   // this.$node = $('<span class="dancer"></span>');
   // this.setPosition(top, left);
