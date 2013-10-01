@@ -9,14 +9,14 @@
     <script src="src/greenDancer.js"></script>
     <script src="src/blueDancer.js"></script>
   </head>
-  <body>
+  <body background="src/background.jpg">
 
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlueDancer">add a blue dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="GreenDancer">add a green dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="GreenDancer">add a danny dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">test Danny Glover</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlueDancer">fade Danny Glover in and out</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="GreenDancer">add Danny Glover </a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="GreenDancer">add Danny Glover</a>
       <a href="#" class="lineupButton" data-dancer-maker-function-name="lineUp">LINE IT UP</a>
     </div>
 
@@ -52,7 +52,7 @@
           var dancer = new dancerMakerFunction(
             $("body").height() * Math.random(),
             $("body").width() * Math.random(),
-            50
+            100
           );
 
           window.dancers.push(dancer);

@@ -1,21 +1,22 @@
 var Dancer = function(top, left, timeBetweenSteps){
   var instance = this;
-  this.$node = $('<span class="dancer"></span>');
+  this.$node = $('<span class="dancer"> <img src="./src/danny-glover.jpg" alt="Danny" height="200" width = "200"> </span>');
   this.timeBetweenSteps = timeBetweenSteps;
   this.step();
   this.setPosition(top, left);
   this.$node.on("mouseover", function() {
-    instance.$node.fadeOut(function() {
-      instance.$node.remove();
-      for (var i=0; i<window.dancers.length; i++) {
-        if (window.dancers[i] === instance) {
-          window.dancers.splice(i,1);
-        }
-      }
-    }
-      );
+    instance.$node.remove();
   });
 };
+
+// function() {
+//       for (var i=0; i<window.dancers.length; i++) {
+//         if (window.dancers[i] === instance) {
+//           window.dancers.splice(i,1);
+//         }
+//       }
+//     }
+//     );
 
 Dancer.prototype.step = function () {
   var instance = this;

@@ -27,5 +27,6 @@ BlueDancer.prototype = Object.create(Dancer.prototype);  // or new Dancer
 BlueDancer.prototype.constructor = BlueDancer;
 BlueDancer.prototype.step = function() {
   Dancer.prototype.step.call(this);
-  // this.$node.toggle();
+  this.$node.fadeIn();
+  this.$node.fadeOut();
 };
