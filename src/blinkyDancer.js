@@ -5,21 +5,20 @@ var BlinkyDancer = function(top, left, timeBetweenSteps){
   // so we must keep a copy of the old version of this function
   
   Dancer.call(this, top, left, timeBetweenSteps);
-
-  var parentStep = this.step;
-
-  this.step = function(){
-    // call the old version of step at the beginning of any call to this new version of step
-    parentStep();
-    
-    /* toggle() is a jQuery method to show/hide the <span> tag.
-     * See http://api.jquery.com/category/effects/ for this and
-     * other effects you can use on a jQuery-wrapped html tag. */
-    this.$node.toggle();
-  };
+  this.timeBetweenSteps = timeBetweenSteps;
+  // the above line can be uncommented and will replace the next three statements
+  // this.$node = $('<span class="dancer"></span>');
+  // this.setPosition(top, left);
+  // this.step();
 
   // return this
 };
 
-BlinkyDancer.prototype = new Dancer;
+BlinkyDancer.prototype = Object.create(Dancer.prototype);  // or new Dancer
+BlinkyDancer.prototype.constructor = BlinkyDancer;
+BlinkyDancer.prototype.step = function() {
+  Dancer.prototype.step.call(this);
+  this.$node.toggle();
+}
+
 // Do I need to pass arguments top, left, timeBetweenSteps?  Consult MDN again on how best to pass arguments to Dancer
