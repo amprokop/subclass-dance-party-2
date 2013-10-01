@@ -16,7 +16,11 @@ BlinkyDancer.prototype = Object.create(Dancer.prototype);  // or new Dancer
 BlinkyDancer.prototype.constructor = BlinkyDancer;
 BlinkyDancer.prototype.step = function() {
   Dancer.prototype.step.call(this);
-  this.$node.toggle();
-};
+  this.$node.css({"border": "1px" , "border-radius" : "140px"});
 
-// Do I need to pass arguments top, left, timeBetweenSteps?  Consult MDN again on how best to pass arguments to Dancer
+  this.$node.animate({
+    opacity: 0.7,
+    left: "+=10",
+    height: "toggle"
+  }, 1000);
+};
