@@ -17,6 +17,7 @@
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlueDancer">fadey Danny Glover</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="GreenDancer">blinky Danny Glover </a>
       <a href="#" class="challengeButton">TAKE THE DANNY GLOVER CHALLENGE</a>
+      <span id="timer"></span>
       <a href="#" class="lineupButton" data-dancer-maker-function-name="lineUp">Line up</a>
     </div>
 
@@ -35,6 +36,20 @@
         var challengeArray = [window["BlueDancer"],window["GreenDancer"],window["BlinkyDancer"]]
 
         $(".challengeButton").on("click", function(event){
+          var count=5;
+          document.getElementById("timer").innerHTML=count+ " seconds left."
+          var counter=setInterval(timer, 1000);
+          function timer() {
+            count=count-1;
+            document.getElementById("timer").innerHTML=count + " seconds left."
+            if (count <= 0) {
+              clearInterval(counter);
+              document.getElementById("timer").innerHTML = ''
+              return;
+            }
+
+            //Do code for showing the number of seconds here
+          }
           for (var i=0; i<10; i++) {
             var index = getRandomInt(0,2)
             var dancer = new challengeArray[index](
@@ -47,9 +62,9 @@
 
           var dannyWins = function(){
             if (window.dancers.length){
-              alert("Too late, Danny Glover has won 5 more Oscars.")
+              alert("Too late! Danny Glover has won five more Oscars.")
             } else {
-              alert("Cool, you've defeated the most powerful man on earth!")
+              alert("Cool! You've defeated the most powerful man on Earth!")
             }
           }
 
